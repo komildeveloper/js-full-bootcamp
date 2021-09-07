@@ -81,3 +81,18 @@ console.log(age3); */
 
 console.log(yearsUntilRetirement(2001, 'Komil'));
 console.log(yearsUntilRetirement(2006, 'Said')); */
+
+// Functions calling other functions
+
+function cutFruitPieces(fruit) {
+  return fruit * 4;
+}
+
+function fruitProcessor(apples, oranges) {
+  const applePieces = cutFruitPieces(apples);
+  const orangePieces = cutFruitPieces(oranges);
+
+  return `My juice with ${applePieces} apples and ${orangePieces} oranges`;
+}
+const myJuice = fruitProcessor(2, 3);
+console.log(myJuice);
