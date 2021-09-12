@@ -118,8 +118,10 @@ console.log(yearsUntilRetirement(2001, 'Komil'));
 console.log(yearsUntilRetirement(1951, 'Sobit'));
  */
 
-// INTRO ARRAYS
-const friend1 = 'Michael';
+// ARRAYS
+
+// Intro Arrays
+/* const friend1 = 'Michael';
 const friend2 = 'Steven';
 const friend3 = 'Peter';
 
@@ -158,4 +160,6 @@ const ages = [
   calcAge(years[1]),
   calcAge(years[years.length - 1])
 ];
-console.log(ages);
+console.log(ages); */
+
+// BASIC ARRAY METHODS
