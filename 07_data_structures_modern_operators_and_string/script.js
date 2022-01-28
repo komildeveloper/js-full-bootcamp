@@ -48,6 +48,7 @@ const restuarant = {
 }
 
 /*
+// REST PATTERN and PARAMETRS 
 // 1) Destructuring
 
 // SPREAD, because on RIGHT side of =
