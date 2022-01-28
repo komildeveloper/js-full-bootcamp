@@ -47,6 +47,19 @@ const restuarant = {
 	}
 }
 
+/*
+// The Nulllish Coalesing Operator (??)
+
+restuarant.numGuests = 0
+const guests = restuarant.numGuests || 10
+console.log(guests)
+
+// Nullish: null and undefined (NOT 0 or '')
+const guestCorrect = restuarant ?? 10
+console.log(guestCorrect)
+*/
+
+/*
 // SHORT CIRCUITING (&& and ||)
 console.log('---- OR ----')
 // Use ANY data type, return ANY data type, short-circuiting
@@ -76,6 +89,7 @@ if (restuarant.orderPizza) {
 }
 
 restuarant.orderPizza && restuarant.orderPizza('mushrooms', 'spinach')
+*/
 
 /*
 // REST PATTERN and PARAMETRS 
