@@ -1,5 +1,23 @@
 'use strict'
 
+// Enhanced Object Literals
+const weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun']
+
+const openingHours = {
+	[weekdays[3]]: {
+		open: 13,
+		close: 23
+	},
+	[weekdays[4]]: {
+		open: 12,
+		close: 24
+	},
+	[weekdays[5]]: {
+		open: 0,
+		close: 25
+	}
+}
+
 const restuarant = {
 	name: 'Classico Italiano',
 	location: 'Via Angelo Tavanti 23, Firenze, Italy',
@@ -7,45 +25,100 @@ const restuarant = {
 	starterMenu: ['Focacciaa', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
 	mainMenu: ['Pizza', 'Pasta', 'Risotto'],
 
-	openingHours: {
-		thu: {
-			open: 13,
-			close: 23
-		},
-		fri: {
-			open: 12,
-			close: 24
-		},
-		sat: {
-			open: 1,
-			close: 25
-		}
-	},
+	// ES6 enhanced object literals
+	openingHours,
 
-	order: function (starterIndex, mainIndex) {
+	order(starterIndex, mainIndex) {
 		return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]]
 	},
 
-	orderDelivery: function ({
-		starterIndex = 1,
-		mainIndex = 0,
-		time = '20:00',
-		address
-	}) {
+	orderDelivery({ starterIndex = 1, mainIndex = 0, time = '20:00', address }) {
 		console.log(
 			`Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`
 		)
 	},
 
-	orderPasta: function (ing1, ing2, ing3) {
+	orderPasta(ing1, ing2, ing3) {
 		console.log(`Here is your declicious pasta with ${ing1}, ${ing2}, ${ing3}`)
 	},
 
-	orderPizza: function (mainIngredient, ...otherIngredients) {
+	orderPizza(mainIngredient, ...otherIngredients) {
 		console.log(mainIngredient)
 		console.log(otherIngredients)
 	}
 }
+
+// Looping Objects: Object Keys, Values and Entries
+// property NAMES
+const properties = Object.keys(openingHours)
+console.log(properties)
+
+let openStr = `We are open on ${properties.length} days: `
+
+for (const day of properties) {
+	openStr += `${day}, `
+}
+
+console.log(openStr)
+
+// Property VALUES
+const values = Object.values(openingHours)
+console.log(values)
+
+// Entrie Object
+const entries = Object.entries(openingHours)
+// console.log(entries);
+
+for (const [day, { open, close }] of entries) {
+	console.log(`On ${day} we open at ${open} and close at ${close}`)
+}
+
+/*
+// OPTIONAL CHAINING (?.)
+
+// Without optional chaining (?.)
+if (restuarant.openingHours && restuarant.openingHours.mon)
+	console.log(restuarant.openingHours.mon.open)
+
+// Error
+// console.log(restuarant.openingHours.mon?.open)
+
+// Optional Chaining (?.)
+console.log(restuarant.openingHours.mon?.open)
+console.log(restuarant.openingHours?.mon?.open)
+
+// Example
+const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun']
+for (const day of days) {
+	const open = restuarant.openingHours[day]?.open ?? 'closed'
+	console.log(`On ${day} we open at ${open}`)
+}
+
+// Methods
+console.log(restuarant.order?.(0, 1) ?? 'Method does not exist')
+console.log(restuarant.orderRisotto?.(0, 1) ?? 'Method does not exist')
+
+// Arrays
+const users = [{ name: 'Komil', email: 'hello@komil.com' }]
+// const users = [];
+
+console.log(users[0]?.name ?? 'User array empty')
+if (users.length > 0) console.log(users[0].name)
+else console.log('User array empty')
+*/
+
+/*
+// Looping Arrays: The for-of loop
+const menu = [...restuarant.starterMenu, ...restuarant.mainMenu]
+
+for (const item of menu) console.log(menu)
+
+for(const [i, el] of menu.entries()) {
+  console.log(`${i + 1}: ${el}`)
+}
+*/
+
+// console.log([...menu.entries()])
 
 ///////////////////////////////////////
 // Coding Challenge #1
